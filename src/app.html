@@ -4,9 +4,27 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
+		<script src="https://kit.fontawesome.com/3ccaca579b.js" crossorigin="anonymous"></script>
 		%sveltekit.head%
 	</head>
+
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
+
+<style>
+	:root {
+		--breakpoint-xs: 576px;
+		--breakpoint-sm: 768px;
+		--breakpoint-md: 992px;
+		--breakpoint-lg: 1200px;
+		--breakpoint-xl: 1400px;
+	}
+
+	body {
+		max-width: var(--breakpoint-md);
+		margin-top: 0;
+	}
+</style>
