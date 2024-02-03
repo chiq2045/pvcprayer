@@ -1,4 +1,4 @@
-import { api } from '$lib/server';
+import { api } from '$lib/supabase';
 import type { Actions } from '@sveltejs/kit';
 
 export const actions: Actions = {
