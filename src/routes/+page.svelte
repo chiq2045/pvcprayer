@@ -1,5 +1,15 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import toast from 'svelte-french-toast';
+	// import { toast } from '@zerodevx/svelte-toast';
+	export let form: { success: boolean; message: string } | null;
+
+	$: if (form && form.success) {
+		toast.success(form.message);
+	}
+	$: if (form && !form.success) {
+		toast.error(form.message);
+	}
 </script>
 
 <header>
@@ -15,10 +25,8 @@
 	<article>
 		<h1>Prayer Form</h1>
 		<details>
-			<!-- eslint-disable svelte/valid-compile -->
 			<!-- svelte-ignore a11y-no-redundant-roles -->
 			<summary role="button" class="secondary">
-				<!-- eslint-enable svelte/valid-compile -->
 				<span class="fa fa-info" />
 				More information about the Prayer Form
 			</summary>
