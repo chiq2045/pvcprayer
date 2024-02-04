@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 </script>
 
-<main>
+<section>
 	<article>
 		<h1>Login</h1>
 		<form method="post" use:enhance>
@@ -15,4 +15,11 @@
 			</div>
 		</form>
 	</article>
-</main>
+</section>
+
+<style>
+	section {
+		display: flex;
+		justify-content: center;
+	}
+</style>

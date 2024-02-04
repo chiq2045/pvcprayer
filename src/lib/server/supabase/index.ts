@@ -8,13 +8,24 @@ export const api = {
 	insertPrayer: async (data: FormData) => {
 		const name = data.get('name') as string | undefined;
 		const email = data.get('email') as string | undefined;
-		const prayerRequest = data.get('prayer_request') as string | undefined;
+		const prayerRequest = data.get('prayer_request') as string;
 		return await supabase.from('prayers').insert([
 			{
-				name: name as string | undefined,
-				email: email as string | undefined,
-				prayer_request: prayerRequest as string
+				name: name,
+				email: email,
+				prayer_request: prayerRequest
 			}
 		]);
+	},
+	login: async (data: FormData) => {
+		const email = data.get('email') as string;
+		const password = data.get('password') as string;
+		return await supabase.auth.signInWithPassword({
+			email,
+			password
+		});
+	},
+	logout: async () => {
+		return await supabase.auth.signOut();
 	}
 };
