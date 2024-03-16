@@ -5,7 +5,9 @@
 	<nav>
 		<h1>PVC Prayer</h1>
 		<ul>
-			<li><a href="/">Prayer Form</a></li>
+			<li><a href="/admin/dashboard">My Prayers</a></li>
+			<li><a href="/admin/list">Prayer List</a></li>
+			<li><a href="/admin/logout">Logout</a></li>
 		</ul>
 	</nav>
 </header>

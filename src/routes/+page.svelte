@@ -16,7 +16,7 @@
 	<nav>
 		<h1>PVC Prayer</h1>
 		<ul>
-			<li><a href="/admin">Admin</a></li>
+			<li><a href="/login">Login as Admin</a></li>
 		</ul>
 	</nav>
 </header>

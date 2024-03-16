@@ -27,5 +27,8 @@ export const api = {
 	},
 	logout: async () => {
 		return await supabase.auth.signOut();
+	},
+	getSession: async () => {
+		return await supabase.auth.getSession();
 	}
 };
