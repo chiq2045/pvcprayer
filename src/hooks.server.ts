@@ -13,12 +13,12 @@ const unprotectedRoutes = ['/', '/login'];
 export const handle: Handle = async ({ event, resolve }) => {
 	// Handlie incoming request
 	const session = await api.getSession();
-	if (!session && !unprotectedRoutes.includes(event.url.pathname)) {
+	if (!session.data.session && !unprotectedRoutes.includes(event.url.pathname)) {
 		return redirect('/login', 'User not authenticated');
 	}
 
-	if (session && event.url.pathname === '/login') {
-		return redirect('/admin', 'User authenticated');
+	if (session.data.session && event.url.pathname === '/login') {
+		return redirect('/admin/', 'User authenticated');
 	}
 
 	event.locals.session = session.data.session;

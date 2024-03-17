@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 </script>
 
 <header>
@@ -7,7 +8,11 @@
 		<ul>
 			<li><a href="/admin/dashboard">My Prayers</a></li>
 			<li><a href="/admin/list">Prayer List</a></li>
-			<li><a href="/admin/logout">Logout</a></li>
+			<li>
+				<form action="/admin?/logout" method="post" use:enhance>
+					<button role="link" type="submit" class="logout-button">Logout</button>
+				</form>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -32,5 +37,8 @@
 	nav h1 {
 		font-size: x-large;
 		margin: 0;
+	}
+	.logout-button {
+		border: 0;
 	}
 </style>
