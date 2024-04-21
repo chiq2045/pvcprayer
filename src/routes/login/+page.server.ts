@@ -7,7 +7,7 @@ export const actions: Actions = {
 		const result = await api.login(data);
 
 		if (result.data.session) {
-			throw redirect(303, '/admin/dashboard');
+			throw redirect(303, '/dashboard');
 		}
 	}
 };

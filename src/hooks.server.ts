@@ -8,7 +8,7 @@ function redirect(location: string, body?: string) {
 	});
 }
 
-const unprotectedRoutes = ['/', '/login'];
+const unprotectedRoutes = ['/', '/new', '/login'];
 
 export const handle: Handle = async ({ event, resolve }) => {
 	// Handlie incoming request
@@ -19,6 +19,10 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	if (session.data.session && event.url.pathname === '/login') {
 		return redirect('/admin/', 'User authenticated');
+	}
+
+	if (event.url.pathname === '/') {
+		return redirect('/new');
 	}
 
 	event.locals.session = session.data.session;

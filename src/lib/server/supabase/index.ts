@@ -30,5 +30,8 @@ export const api = {
 	},
 	getSession: async () => {
 		return await supabase.auth.getSession();
+	},
+	getPrayers: async () => {
+		return await supabase.from('prayers').select('*');
 	}
 };
