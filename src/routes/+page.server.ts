@@ -1,11 +1,17 @@
 import { api } from '$lib/server';
-import type { Actions } from '@sveltejs/kit';
+import type { ActionResult, Actions } from '@sveltejs/kit';
 
 export const actions: Actions = {
 	create: async ({ request }) => {
 		const data = await request.formData();
 		const result = await api.createPrayer(data);
 
+		const actionResult: ActionResult = {
+			type: 'success',
+			data: result,
+			status: 200
+		};
 		console.log(result);
+		return actionResult;
 	}
 };

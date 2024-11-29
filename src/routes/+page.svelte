@@ -1,5 +1,30 @@
+<script lang="ts">
+	import toast from 'svelte-hot-french-toast';
+	import { applyAction, enhance } from '$app/forms';
+</script>
+
 <div class="centered-form">
-	<form action="?/create">
+	<form
+		method="post"
+		action="?/create"
+		use:enhance={() => {
+			return async ({ result, update }) => {
+				switch (result.type) {
+					case 'success':
+						toast.success('Your Prayer Request has been submitted');
+						update();
+						break;
+					case 'failure':
+					case 'error':
+						toast.error('Something went wrong. Your Prayer Request was not submitted');
+						break;
+					default:
+						update();
+						applyAction(result);
+				}
+			};
+		}}
+	>
 		<h1>Prayer Form</h1>
 		<details>
 			<!-- svelte-ignore a11y-no-redundant-roles -->

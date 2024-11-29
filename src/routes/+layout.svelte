@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { Toaster } from 'svelte-hot-french-toast';
+</script>
+
 <header class="container">
 	<nav>
 		<ul>
@@ -14,3 +18,10 @@
 <main class="container">
 	<slot />
 </main>
+
+<Toaster
+	position="top-end"
+	toastOptions={{
+		duration: Infinity
+	}}
+/>
