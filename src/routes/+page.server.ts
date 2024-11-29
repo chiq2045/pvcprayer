@@ -6,12 +6,18 @@ export const actions: Actions = {
 		const data = await request.formData();
 		const result = await api.createPrayer(data);
 
-		const actionResult: ActionResult = {
-			type: 'success',
-			data: result,
-			status: 200
-		};
-		console.log(result);
+		const actionResult: ActionResult = result['tx-id']
+			? {
+					type: 'success',
+					data: result,
+					status: 200
+				}
+			: {
+					type: 'failure',
+					data: result,
+					status: 200
+				};
+		console.log(result, actionResult);
 		return actionResult;
 	}
 };
