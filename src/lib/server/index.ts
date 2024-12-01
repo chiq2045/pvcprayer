@@ -1,6 +1,7 @@
 import { env } from '$env/dynamic/private';
 import { id, init_experimental } from '@instantdb/admin';
 import schema from '../../../instant.schema';
+import { init } from '@instantdb/core';
 
 const db = init_experimental({
 	appId: env.INSTANT_APP_ID,

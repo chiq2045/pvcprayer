@@ -29,6 +29,7 @@
 	},
 	"dependencies": {
 		"@instantdb/admin": "^0.16.2",
+		"@instantdb/core": "^0.16.2",
 		"svelte-hot-french-toast": "^1.0.0"
 	}
 }
